@@ -1,9 +1,9 @@
 import { describe, it, expect } from "vitest";
 import { readFileSync } from 'fs';
 import { join } from 'path';
-import { OperationType, parseCsvForClosedOperations, ParsedOperation } from "../../src/parsers/parser"
+import { OperationType, parseCsvForClosedOperations } from "../../src/parsers/parser"
+import type { ParsedOperation } from "../../src/parsers/parser"
 import { MyInvestorParser } from "../../src/parsers/myinvestor.parser";
-import { printData } from "../utils";
 
 describe('parser', () => {
 

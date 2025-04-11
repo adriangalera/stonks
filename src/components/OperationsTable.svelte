@@ -11,9 +11,9 @@
 </script>
 
 {#if $summary != null}
-    <div class="overflow-x-auto bg-white shadow rounded p-4">
+    <div class="overflow-auto flex-grow min-h-0">
         <table class="w-full border-collapse table-auto text-sm">
-            <thead class="bg-gray-100 text-left">
+            <thead class="bg-gray-100 sticky top-0 z-10">
                 <tr>
                     <th class="p-2 font-semibold">Concept</th>
                     <th class="p-2 font-semibold">Buy Price (€)</th>

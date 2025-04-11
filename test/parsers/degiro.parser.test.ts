@@ -3,7 +3,6 @@ import { readFileSync } from 'fs';
 import { join } from 'path';
 import { OperationType, parseCsvForClosedOperations } from "../../src/parsers/parser"
 import { DegiroParser } from "../../src/parsers/degiro.parser";
-import { printData } from "../utils";
 
 describe('parser', () => {
 

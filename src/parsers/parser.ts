@@ -66,7 +66,7 @@ const findParser = (csvData: string): ParserConfig => {
     throw new Error("Cannot find a parser")
 }
 
-export const parseCsvForClosedOperations = (csvData: string, startDate?: Date | null, endDate?: Date | null): Map<string, ParsedOperation[]> => {
+export const parseCsvForClosedOperations = (csvData: string, _?: Date | null, __?: Date | null): Map<string, ParsedOperation[]> => {
     const parserConfig = findParser(csvData)
     const parser = parserConfig.parser
     const rawData: ParseResult<string> = Papa.parse(csvData, { header: false, skipEmptyLines: true })
