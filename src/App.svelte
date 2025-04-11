@@ -12,12 +12,10 @@
         Stock Operations Summary
     </h1>
 
-    <div
-        class="mb-6 flex flex-col sm:flex-row items-start sm:items-center gap-4"
-    >
+    <div class="mb-6 flex flex-col sm:flex-row sm:items-end gap-4">
         <DatePicker></DatePicker>
+        <UploadCsv></UploadCsv>
     </div>
-    <UploadCsv></UploadCsv>
 
     <div class="space-y-8">
         <OperationsTable></OperationsTable>
@@ -25,12 +23,12 @@
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div class="bg-white shadow rounded p-4">
-          <ProfitLineChart></ProfitLineChart>
+            <ProfitLineChart></ProfitLineChart>
         </div>
         <div class="bg-white shadow rounded p-4">
-          <HorizontalBarChart></HorizontalBarChart>
+            <HorizontalBarChart></HorizontalBarChart>
         </div>
-      </div>
+    </div>
 
     <Summarizer></Summarizer>
 </main>
