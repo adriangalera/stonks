@@ -85,4 +85,4 @@
     });
 </script>
 
-<canvas bind:this={canvas}></canvas>
+<canvas class="w-full h-auto" bind:this={canvas}></canvas>

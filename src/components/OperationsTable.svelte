@@ -1,7 +1,7 @@
 <script lang="ts">
     import { summary } from "../stores";
     import type { ClosedOperationSummary } from "../summarizer";
-    let sortedOperations : ClosedOperationSummary[];
+    let sortedOperations: ClosedOperationSummary[];
     $: {
         sortedOperations = $summary?.closedOperations || [];
         sortedOperations.sort(
@@ -11,44 +11,46 @@
 </script>
 
 {#if $summary != null}
-    <table>
-        <thead>
-            <tr>
-                <th>Concept</th>
-                <th>Buy Price (€)</th>
-                <th>Sell Price (€)</th>
-                <th>Profit (€)</th>
-            </tr>
-        </thead>
-        <tbody>
-            {#each sortedOperations as op}
+    <div class="overflow-x-auto bg-white shadow rounded p-4">
+        <table class="w-full border-collapse table-auto text-sm">
+            <thead class="bg-gray-100 text-left">
                 <tr>
-                    <td>{op.concept}</td>
-                    <td>{op.buyPrice}</td>
-                    <td>{op.sellPrice}</td>
+                    <th class="p-2 font-semibold">Concept</th>
+                    <th class="p-2 font-semibold">Buy Price (€)</th>
+                    <th class="p-2 font-semibold">Sell Price (€)</th>
+                    <th class="p-2 font-semibold">Profit (€)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {#each sortedOperations as op}
+                    <tr class="border-t">
+                        <td class="p-2">{op.concept}</td>
+                        <td class="p-2">{op.buyPrice}</td>
+                        <td class="p-2">{op.sellPrice}</td>
+                        <td
+                            class="p2 {parseFloat(op.profit) >= 0
+                                ? 'text-green-600'
+                                : 'text-red-600'}"
+                        >
+                            {op.profit}
+                        </td>
+                    </tr>
+                {/each}
+            </tbody>
+            <tfoot>
+                <tr class="border-t font-semibold">
+                    <td class="p-2" colspan="3">Total Profit</td>
                     <td
-                        style="color: ${parseFloat(op.profit) >= 0
-                            ? 'green'
-                            : 'red'}"
+                        class="p2 {parseFloat($summary.totalProfit) >= 0
+                            ? 'text-green-600'
+                            : 'text-red-600'}"
                     >
-                        {op.profit}
+                        {$summary.totalProfit}
                     </td>
                 </tr>
-            {/each}
-        </tbody>
-        <tfoot>
-            <tr>
-                <td colspan="3">Total Profit</td>
-                <td
-                    style="color: {parseFloat($summary.totalProfit) >= 0
-                        ? 'green'
-                        : 'red'}"
-                >
-                    {$summary.totalProfit}
-                </td>
-            </tr>
-        </tfoot>
-    </table>
+            </tfoot>
+        </table>
+    </div>
 {:else}
     <p>No data yet</p>
 {/if}
