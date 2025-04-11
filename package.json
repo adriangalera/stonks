@@ -1,0 +1,29 @@
+{
+  "name": "stonks",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "test": "vitest"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^5.0.3",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/svelte": "^5.2.7",
+    "@tsconfig/svelte": "^5.0.4",
+    "@types/papaparse": "^5.3.15",
+    "jsdom": "^26.0.0",
+    "svelte": "^5.25.10",
+    "svelte-preprocess": "^6.0.3",
+    "typescript": "~5.7.2",
+    "vite": "^6.2.0",
+    "vitest": "^3.1.1"
+  },
+  "dependencies": {
+    "chart.js": "^4.4.8",
+    "papaparse": "^5.5.2"
+  }
+}
