@@ -11,8 +11,8 @@
 </script>
 
 {#if $summary != null}
-    <div class="overflow-auto flex-grow min-h-0">
-        <table class="w-full border-collapse table-auto text-sm">
+    <div class="overflow-auto max-h-80 lg:max-h-[40vh]">
+        <table class="w-full border-collapse table-auto text-sm min-w-[600px]">
             <thead class="bg-gray-100 sticky top-0 z-10">
                 <tr>
                     <th class="p-2 font-semibold">Concept</th>
