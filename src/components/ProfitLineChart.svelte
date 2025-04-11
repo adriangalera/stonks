@@ -14,6 +14,7 @@
 
     const options: ChartOptions = {
         responsive: true,
+        maintainAspectRatio: false,
         scales: {
             x: { title: { display: true, text: "Date" } },
             y: {
@@ -56,7 +57,7 @@
             {
                 label: "Accumulated Profit (€)",
                 data: newData.values,
-                fill: false,
+                fill: true,
                 borderColor: "rgba(54, 162, 235, 1)",
                 tension: 0.1,
             },

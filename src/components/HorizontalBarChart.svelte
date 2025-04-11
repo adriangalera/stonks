@@ -44,15 +44,15 @@
     const options: ChartOptions = {
         indexAxis: "y",
         responsive: true,
+        maintainAspectRatio: false,
+        /*
         plugins: {
-            legend: { display: false },
-            tooltip: {
-                callbacks: { label: (ctx: any) => `${ctx.raw.toFixed(2)} €` },
-            },
+            legend: { display: true },
         },
         scales: {
             x: { beginAtZero: true },
         },
+        */
     };
     const type: ChartType = "bar";
 
