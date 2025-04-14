@@ -3,8 +3,8 @@
     import OperationsTable from "./components/OperationsTable.svelte";
     import HorizontalBarChart from "./components/HorizontalBarChart.svelte";
     import ProfitLineChart from "./components/ProfitLineChart.svelte";
-    import UploadCsv from "./components/UploadCsv.svelte";
     import Summarizer from "./components/Summarizer.svelte";
+    import ClosedOperationsCsvUpload from "./components/ClosedOperationsCsvUpload.svelte";
 </script>
 
 <!-- Header -->
@@ -12,8 +12,8 @@
     <div
         class="max-w-screen-xl mx-auto flex flex-col sm:flex-row sm:items-end gap-4"
     >
+        <h1 class="text-5xl font-extrabold">Stonks</h1>
         <DatePicker></DatePicker>
-        <UploadCsv></UploadCsv>
     </div>
 </header>
 
@@ -31,7 +31,10 @@
 
         <!-- (2) Top-right: Scrollable Table -->
         <div class="bg-white shadow rounded p-4 h-full flex flex-col min-h-0">
-            <h2 class="text-lg font-semibold mb-2">Closed operations</h2>
+            <div class="flex items-center justify-between mb-2">
+                <h2 class="text-lg font-semibold">Closed operations</h2>
+                <ClosedOperationsCsvUpload></ClosedOperationsCsvUpload>
+            </div>
             <OperationsTable></OperationsTable>
         </div>
 
