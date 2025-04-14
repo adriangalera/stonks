@@ -1,8 +1,7 @@
 <script lang="ts">
     import { parsedData } from "../stores";
     let dragging = false;
-    let files = [];
-    let input;
+    let input: HTMLElement;
 
     const handleFile = async (file: any) => {
         if (file && isCSV(file)) {

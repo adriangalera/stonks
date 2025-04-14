@@ -13,6 +13,7 @@ vi.mock('../../src/stores', () => {
 
 if (!File.prototype.text) {
     File.prototype.text = function () {
+        // @ts-ignore
         return Promise.resolve(this._mockText || '');
     };
 }
