@@ -3,9 +3,10 @@
     import OperationsTable from "./components/OperationsTable.svelte";
     import HorizontalBarChart from "./components/HorizontalBarChart.svelte";
     import ProfitLineChart from "./components/ProfitLineChart.svelte";
-    import Summarizer from "./helpers/Summarizer.svelte";
+    import Summarizer from "./subscribers/Summarizer.svelte";
     import CsvUpload from "./components/CsvUpload.svelte";
     import { ParseOperationType } from "./parsers/openOperations.parser";
+    import OpenOperationsCalculator from "./subscribers/OpenOperationsCalculator.svelte";
 </script>
 
 <!-- Header -->
@@ -114,21 +115,7 @@
                 <HorizontalBarChart></HorizontalBarChart>
             </div>
         </div>
-
-        <!-- 
-    <div class="space-y-8">
-        <OperationsTable></OperationsTable>
-    </div>
-
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div class="bg-white shadow rounded p-4">
-            <ProfitLineChart></ProfitLineChart>
-        </div>
-        <div class="bg-white shadow rounded p-4">
-            <HorizontalBarChart></HorizontalBarChart>
-        </div>
-    </div> -->
-
         <Summarizer></Summarizer>
+        <OpenOperationsCalculator></OpenOperationsCalculator>
     </div>
 </main>

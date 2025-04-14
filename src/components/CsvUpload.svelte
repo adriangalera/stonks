@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { parsedData } from "../stores";
+    import { parsedData, parsedDataForOpenOperations } from "../stores";
     import { ParseOperationType } from "../parsers/openOperations.parser";
     let dragging = false;
     let input: HTMLElement;
@@ -12,7 +12,7 @@
                 parsedData.set(text);
             }
             if (parseOperationType === ParseOperationType.OPEN) {
-                console.log("This will set the open positions ...");
+                parsedDataForOpenOperations.set(text);
             }
         }
     };

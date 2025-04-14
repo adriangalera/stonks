@@ -1,12 +1,15 @@
 import { render, fireEvent, waitFor } from '@testing-library/svelte';
 import { vi, describe, it, expect, beforeEach } from 'vitest';
 import FileUploader from '../../src/components/CsvUpload.svelte';
-import { parsedData } from '../../src/stores';
+import { parsedData, parsedDataForOpenOperations } from '../../src/stores';
 import { ParseOperationType } from '../../src/parsers/openOperations.parser';
 
 vi.mock('../../src/stores', () => {
     return {
         parsedData: {
+            set: vi.fn()
+        },
+        parsedDataForOpenOperations: {
             set: vi.fn()
         }
     };
@@ -62,6 +65,27 @@ describe('FileUploader component', () => {
 
         await waitFor(() => {
             expect(parsedData.set).toHaveBeenCalledWith('x,y\n4,5');
+        });
+    });
+
+    it('handles drag and drop with a CSV file and set it on parsedDataForOpenOperations', async () => {
+        const { getByRole } = render(FileUploader, { props: { parseOperationType: ParseOperationType.OPEN } })
+
+        const fileContent = 'x,y\n4,5'
+        const file = new File([fileContent], 'data.csv', { type: 'text/csv' });
+        (file as any)._mockText = fileContent;
+        const dropzone = getByRole('button');
+
+        await fireEvent.dragOver(dropzone);
+        await fireEvent.drop(dropzone, {
+            dataTransfer: {
+                files: [file],
+                types: ['Files']
+            }
+        });
+
+        await waitFor(() => {
+            expect(parsedDataForOpenOperations.set).toHaveBeenCalledWith('x,y\n4,5');
         });
     });
 
