@@ -5,6 +5,7 @@ import tailwindcss from '@tailwindcss/vite' /* instead of @tailwindcss/postcss *
 
 export default defineConfig({
   plugins: [svelte(), svelteTesting(), tailwindcss()],
+  base: '/stonks/',
   test: {
     globals: true,
     environment: 'jsdom', // or 'jsdom' for browser-like environment
