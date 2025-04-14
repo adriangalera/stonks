@@ -1,1 +1,3 @@
-testing
+Ticker,BuyPrice,Amount,Currency
+INTC,33.6,6,USD
+ARM,185.18,1,USD
