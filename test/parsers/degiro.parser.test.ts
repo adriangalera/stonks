@@ -4,7 +4,7 @@ import { join } from 'path';
 import { OperationType, parseCsvForClosedOperations } from "../../src/parsers/parser"
 import { DegiroParser } from "../../src/parsers/degiro.parser";
 
-describe('parser', () => {
+describe('Degiro parser', () => {
 
     const deGiroClosedPositions = [
         "BAXTER INTERNATIONAL",

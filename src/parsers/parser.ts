@@ -66,12 +66,23 @@ const findParser = (csvData: string): ParserConfig => {
     throw new Error("Cannot find a parser")
 }
 
-export const parseCsvForClosedOperations = (csvData: string, _?: Date | null, __?: Date | null): Map<string, ParsedOperation[]> => {
+const applyDates = (parsedData: ParsedOperation[], startDate?: Date | null, endDate?: Date | null): ParsedOperation[] => {
+    if (endDate == null) {
+        endDate = new Date()
+    }
+    if (startDate == null) {
+        startDate = new Date('2010-01-01')
+    }
+    return parsedData.filter(  (operation) => operation.date.getTime() >= new Date(startDate).getTime() && operation.date.getTime() <= new Date(endDate).getTime() )
+}
+
+export const parseCsvForClosedOperations = (csvData: string, startDate?: Date | null, endDate?: Date | null): Map<string, ParsedOperation[]> => {
     const parserConfig = findParser(csvData)
     const parser = parserConfig.parser
     const rawData: ParseResult<string> = Papa.parse(csvData, { header: false, skipEmptyLines: true })
     let parsedData = rawData.data.map((data) => parser.parseOperation(data))
     parsedData = parser.postProcess(parsedData)
+    parsedData = applyDates(parsedData, startDate, endDate)
     return onlyClosedOperations(parser, parsedData)
 }
 

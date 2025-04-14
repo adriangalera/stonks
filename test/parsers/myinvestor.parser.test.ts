@@ -5,7 +5,7 @@ import { OperationType, parseCsvForClosedOperations } from "../../src/parsers/pa
 import type { ParsedOperation } from "../../src/parsers/parser"
 import { MyInvestorParser } from "../../src/parsers/myinvestor.parser";
 
-describe('parser', () => {
+describe('Myinvestor parser', () => {
 
     const openedPositions = ["IBM @ 1", "ENTERGY CORP @ 3", "INTEL CORPORATION @ 6", "ARM HOLDINGS PLC @ 1"]
     const closedPositions = [
