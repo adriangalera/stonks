@@ -31,11 +31,6 @@ type ParserConfig = {
     separator: string
 }
 
-export enum ParseOperationType {
-    CLOSED = "CLOSED",
-    OPEN = "OPEN",
-}
-
 const groupByConcept = (allOperations: ParsedOperation[]): Map<string, ParsedOperation[]> => {
     const groupedByConcept = new Map<string, ParsedOperation[]>();
     for (const operation of allOperations) {

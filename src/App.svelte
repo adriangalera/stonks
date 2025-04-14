@@ -5,7 +5,7 @@
     import ProfitLineChart from "./components/ProfitLineChart.svelte";
     import Summarizer from "./helpers/Summarizer.svelte";
     import CsvUpload from "./components/CsvUpload.svelte";
-    import { ParseOperationType } from "./parsers/parser";
+    import { ParseOperationType } from "./parsers/openOperations.parser";
 </script>
 
 <!-- Header -->

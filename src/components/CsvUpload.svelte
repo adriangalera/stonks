@@ -1,6 +1,6 @@
 <script lang="ts">
     import { parsedData } from "../stores";
-    import { ParseOperationType } from "../parsers/parser";
+    import { ParseOperationType } from "../parsers/openOperations.parser";
     let dragging = false;
     let input: HTMLElement;
     export let parseOperationType: ParseOperationType;
