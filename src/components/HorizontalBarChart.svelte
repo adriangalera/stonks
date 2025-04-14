@@ -45,17 +45,15 @@
         indexAxis: "y",
         responsive: true,
         maintainAspectRatio: false,
-        /*
         plugins: {
             legend: { display: true },
         },
         scales: {
             x: { beginAtZero: true },
+            y: { ticks: { display: false } },
         },
-        */
     };
     const type: ChartType = "bar";
-
     onMount(() => {
         chart = new Chart(canvas, {
             type,

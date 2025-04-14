@@ -17,25 +17,27 @@
     </div>
 </header>
 
-<main class="flex-grow p-4">
+<main class="flex-grow p-4 overflow-hidden">
     <div
         class="h-full max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-2 grid-rows-[1fr_1fr] gap-6"
     >
         <!-- (1) Top-left: Placeholder -->
-        <div
-            class="bg-white shadow rounded p-4 h-full flex items-center justify-center"
-        >
-            <p class="text-gray-400">Coming Soon</p>
+        <div class="bg-white shadow rounded p-4 h-full flex flex-col min-h-0">
+            <h2 class="text-lg font-semibold mb-2">Open operations</h2>
+            <div class="h-full items-center justify-center">
+                <p class="text-gray-400">Coming Soon</p>
+            </div>
         </div>
 
         <!-- (2) Top-right: Scrollable Table -->
         <div class="bg-white shadow rounded p-4 h-full flex flex-col min-h-0">
+            <h2 class="text-lg font-semibold mb-2">Closed operations</h2>
             <OperationsTable></OperationsTable>
         </div>
 
         <!-- (3) Bottom-left: Chart -->
         <div class="bg-white shadow rounded p-4 h-full flex flex-col min-h-0">
-            <h2 class="text-lg font-semibold mb-2">Profit Over Time</h2>
+            <h2 class="text-lg font-semibold mb-2">Profit over time</h2>
             <div class="flex-grow overflow-hidden">
                 <ProfitLineChart></ProfitLineChart>
             </div>
@@ -43,7 +45,7 @@
 
         <!-- (4) Bottom-right: Chart -->
         <div class="bg-white shadow rounded p-4 h-full flex flex-col min-h-0">
-            <h2 class="text-lg font-semibold mb-2">Profit by Operation</h2>
+            <h2 class="text-lg font-semibold mb-2">Profit by operation</h2>
             <div class="flex-grow overflow-hidden">
                 <HorizontalBarChart></HorizontalBarChart>
             </div>

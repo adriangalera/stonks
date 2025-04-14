@@ -37,7 +37,7 @@
                     </tr>
                 {/each}
             </tbody>
-            <tfoot>
+            <tfoot class="sticky bottom-0 bg-white">
                 <tr class="border-t font-semibold">
                     <td class="p-2" colspan="3">Total Profit</td>
                     <td
@@ -52,5 +52,7 @@
         </table>
     </div>
 {:else}
-    <p>No data yet</p>
+    <div class="h-full items-center justify-center">
+        <p class="text-gray-400">No data yet</p>
+    </div>
 {/if}

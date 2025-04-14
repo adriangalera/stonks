@@ -11,7 +11,6 @@
                 $endDate,
             );
             const summarizedData = summarize(closedOperations);
-            console.log(`Summarized ${summarizedData.closedOperations.length} operations ...`)
             summary.set(summarizedData);
         }
     }
