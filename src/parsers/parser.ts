@@ -31,6 +31,11 @@ type ParserConfig = {
     separator: string
 }
 
+export enum ParseOperationType {
+    CLOSED = "CLOSED",
+    OPEN = "OPEN",
+}
+
 const groupByConcept = (allOperations: ParsedOperation[]): Map<string, ParsedOperation[]> => {
     const groupedByConcept = new Map<string, ParsedOperation[]>();
     for (const operation of allOperations) {
@@ -73,7 +78,7 @@ const applyDates = (parsedData: ParsedOperation[], startDate?: Date | null, endD
     if (startDate == null) {
         startDate = new Date('2010-01-01')
     }
-    return parsedData.filter(  (operation) => operation.date.getTime() >= new Date(startDate).getTime() && operation.date.getTime() <= new Date(endDate).getTime() )
+    return parsedData.filter((operation) => operation.date.getTime() >= new Date(startDate).getTime() && operation.date.getTime() <= new Date(endDate).getTime())
 }
 
 export const parseCsvForClosedOperations = (csvData: string, startDate?: Date | null, endDate?: Date | null): Map<string, ParsedOperation[]> => {

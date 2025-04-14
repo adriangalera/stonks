@@ -1,12 +1,19 @@
 <script lang="ts">
     import { parsedData } from "../stores";
+    import { ParseOperationType } from "../parsers/parser";
     let dragging = false;
     let input: HTMLElement;
+    export let parseOperationType: ParseOperationType;
 
     const handleFile = async (file: any) => {
         if (file && isCSV(file)) {
             const text = await file.text();
-            parsedData.set(text);
+            if (parseOperationType === ParseOperationType.CLOSED) {
+                parsedData.set(text);
+            }
+            if (parseOperationType === ParseOperationType.OPEN) {
+                console.log("This will set the open positions ...");
+            }
         }
     };
 

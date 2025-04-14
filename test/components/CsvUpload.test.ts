@@ -1,7 +1,8 @@
 import { render, fireEvent, waitFor } from '@testing-library/svelte';
 import { vi, describe, it, expect, beforeEach } from 'vitest';
-import FileUploader from '../../src/components/ClosedOperationsCsvUpload.svelte';
+import FileUploader from '../../src/components/CsvUpload.svelte';
 import { parsedData } from '../../src/stores';
+import { ParseOperationType } from '../../src/parsers/parser';
 
 vi.mock('../../src/stores', () => {
     return {
@@ -26,7 +27,7 @@ describe('FileUploader component', () => {
 
 
     it('handles file input change with a CSV file', async () => {
-        const { container } = render(FileUploader);
+        const { container } = render(FileUploader, { props: { parseOperationType: ParseOperationType.CLOSED } })
 
         const fileContent = 'a,b,c\n1,2,3'
         const file = new File([fileContent], 'data.csv', { type: 'text/csv' });
@@ -44,7 +45,7 @@ describe('FileUploader component', () => {
     });
 
     it('handles drag and drop with a CSV file', async () => {
-        const { getByRole } = render(FileUploader);
+        const { getByRole } = render(FileUploader, { props: { parseOperationType: ParseOperationType.CLOSED } })
 
         const fileContent = 'x,y\n4,5'
         const file = new File([fileContent], 'data.csv', { type: 'text/csv' });
